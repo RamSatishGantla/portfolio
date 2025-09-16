@@ -1,0 +1,177 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CSE Portfolio Design System - Cyberpunk Tech Theme
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Dark theme base */
+    --background: 220 13% 9%;
+    --foreground: 210 40% 98%;
+
+    --card: 220 13% 11%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 220 13% 11%;
+    --popover-foreground: 210 40% 98%;
+
+    /* Electric blue primary */
+    --primary: 195 100% 50%;
+    --primary-foreground: 220 13% 9%;
+
+    /* Purple secondary */
+    --secondary: 270 100% 60%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 220 13% 15%;
+    --muted-foreground: 215 20% 65%;
+
+    /* Neon green accent */
+    --accent: 120 100% 50%;
+    --accent-foreground: 220 13% 9%;
+
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 13% 20%;
+    --input: 220 13% 15%;
+    --ring: 195 100% 50%;
+
+    --radius: 0.75rem;
+
+    /* Custom portfolio colors */
+    --neon-blue: 195 100% 50%;
+    --neon-purple: 270 100% 60%;
+    --neon-green: 120 100% 50%;
+    --neon-pink: 320 100% 60%;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(195 100% 50%), hsl(270 100% 60%));
+    --gradient-secondary: linear-gradient(135deg, hsl(270 100% 60%), hsl(320 100% 60%));
+    --gradient-accent: linear-gradient(135deg, hsl(120 100% 50%), hsl(195 100% 50%));
+    
+    /* Shadows with glow effects */
+    --shadow-neon: 0 0 20px hsl(195 100% 50% / 0.3);
+    --shadow-purple: 0 0 20px hsl(270 100% 60% / 0.3);
+    --shadow-green: 0 0 20px hsl(120 100% 50% / 0.3);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  /* Force dark theme - no light mode needed */
+  .light {
+    /* Same as root dark theme */
+    --background: 220 13% 9%;
+    --foreground: 210 40% 98%;
+    --card: 220 13% 11%;
+    --card-foreground: 210 40% 98%;
+    --primary: 195 100% 50%;
+    --secondary: 270 100% 60%;
+    --accent: 120 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary));
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--secondary));
+  }
+}
+
+@layer components {
+  /* Neon glow effects */
+  .glow-blue {
+    box-shadow: var(--shadow-neon);
+  }
+
+  .glow-purple {
+    box-shadow: var(--shadow-purple);
+  }
+
+  .glow-green {
+    box-shadow: var(--shadow-green);
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Typing animation */
+  .typing-animation {
+    overflow: hidden;
+    border-right: 2px solid hsl(var(--primary));
+    white-space: nowrap;
+    animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+  }
+
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: hsl(var(--primary)) }
+  }
+
+  /* Hover animations */
+  .hover-glow {
+    transition: all 0.3s ease;
+  }
+
+  .hover-glow:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 40px hsl(var(--primary) / 0.2);
+  }
+
+  /* Grid pattern background */
+  .grid-pattern {
+    background-image: 
+      linear-gradient(rgba(195, 255, 255, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(195, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+}
